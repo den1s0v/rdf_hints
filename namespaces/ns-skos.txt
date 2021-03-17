@@ -1,0 +1,164 @@
+https://www.w3.org/TR/skos-reference/
+https://www.w3.org/TR/skos-reference/#vocab
+    (accessed 18.02.2021)
+
+skos:   http://www.w3.org/2004/02/skos/core#
+
+FULL VOCABULARY
+==================
+
+Classes
+
+skos:Concept            (important unit of a SKOS data model)
+skos:ConceptScheme      (groups concepts with skos:inScheme link)
+skos:Collection
+ |
+ +- skos:OrderedCollection
+
+Properties
+
+skos:altLabel
+skos:broadMatch
+skos:broader
+skos:broaderTransitive
+skos:changeNote
+skos:closeMatch
+skos:definition
+skos:editorialNote
+skos:exactMatch
+skos:example
+skos:hasTopConcept      [skos:ConceptScheme >> skos:Concept]
+skos:hiddenLabel
+skos:historyNote
+skos:inScheme           [Resource >> skos:ConceptScheme]
+skos:mappingRelation
+skos:member             [skos:Collection >> union of skos:Concept and skos:Collection]
+skos:memberList         [functional] [skos:OrderedCollection >> rdf:List]
+skos:narrowMatch
+skos:narrower
+skos:narrowerTransitive
+skos:notation           (a unique string (ID or code) of a concept within some (external) concept scheme)
+skos:note               (base of a family of annotaions, see below)
+skos:prefLabel
+skos:related
+skos:relatedMatch
+skos:scopeNote
+skos:semanticRelation
+skos:topConceptOf
+
+
+
+Concept Schemes
+=====================
+
+skos:Concept
+skos:ConceptScheme
+
+skos:inScheme
+ |
+ +- skos:hasTopConcept  [skos:ConceptScheme >> skos:Concept]
+
+skos:topConceptOf  <>  skos:hasTopConcept
+
+
+
+Lexical Labels
+=====================
+
+rdfs:label
+ |
+ +- skos:prefLabel      [functional]
+ +- skos:altLabel
+ +- skos:hiddenLabel    
+
+
+
+Documentation Properties (Note Properties) - are each instances of owl:AnnotationProperty
+===================
+
+skos:note
+ |
+ +- skos:changeNote
+ +- skos:definition
+ +- skos:editorialNote
+ +- skos:example
+ +- skos:historyNote
+ +- skos:scopeNote
+
+Three different usage patterns are recommended for the SKOS documentation properties — "documentation as an RDF literal", "documentation as a related resource description" and "documentation as a document reference".
+
+
+
+Semantic Relations
+=====================
+
+skos:semanticRelation   [skos:Concept >> skos:Concept]
+ |
+ +- skos:related        (symmetric - but this does not constrain any sub-properties)
+ |   |
+ |   +- skos:relatedMatch
+ |
+ +- skos:broaderTransitive  (by convention not asserted but inferred so can be queried later)
+ |   |
+ |   +- skos:broader    [direct, immediate hierarchical link]
+ |       |
+ |       +- skos:broadMatch
+ |
+ +- skos:narrowerTransitive  <>  skos:broaderTransitive
+ |   |
+ |   +- skos:narrower   [direct, immediate hierarchical link]
+ |       |
+ |       +- skos:narrowMatch
+ *
+ |
+
+
+Mapping Properties
+======================
+
+These properties are used to state mapping (alignment) links between SKOS concepts in DIFFERENT concept schemes, where the links are inherent in the meaning of the linked concepts.
+ 
+skos:semanticRelation   (see above)
+ |
+ *
+ |
+ +- skos:mappingRelation
+     |
+     +- skos:closeMatch         [symmetric]  (two concepts are sufficiently similar for some IR apps)
+     |   |
+     |   +- skos:exactMatch     [symmetric, transitive]  (two concepts are similar for all IR apps)
+     |
+     +- skos:relatedMatch       [symmetric]
+     |
+     +- skos:broadMatch
+     |
+     +- skos:narrowMatch  <>  skos:broadMatch
+
+
+
+
+
+Appendix B. SKOS eXtension for Labels (SKOS-XL)
+======================
+PREFIX skosxl: http://www.w3.org/2008/05/skos-xl#
+This extension provides additional support for identifying, describing and linking lexical entities.
+
+
+The skosxl:Label Class
+=========================
+    
+skosxl:Label            (a special class of lexical entities - a resource-ized RDF Literal) [skosxl:literalForm exactly 1]
+skosxl:literalForm      skosxl:Label  >>  {class of RDF plain literals}
+skosxl:labelRelation    skosxl:Label  >>  skosxl:Label .  [symmetric] (the base class for pair-wise Label relations)
+
+
+Preferred, Alternate and Hidden skosxl:Labels
+=========================
+
+skosxl:prefLabel    Resource  >>  skosxl:Label
+skosxl:altLabel     Resource  >>  skosxl:Label
+skosxl:hiddenLabel  Resource  >>  skosxl:Label
+
+    The property chain (skosxl:prefLabel,   skosxl:literalForm)  is a sub-property of  skos:prefLabel.
+    The property chain (skosxl:altLabel,    skosxl:literalForm)  is a sub-property of  skos:altLabel.
+    The property chain (skosxl:hiddenLabel, skosxl:literalForm)  is a sub-property of  skos:hiddenLabel.

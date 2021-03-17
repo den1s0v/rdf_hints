@@ -1,0 +1,154 @@
+ns-xkos.txt
+
+  XKOS
+  An SKOS extension for representing statistical classifications
+https://rdf-vocabulary.ddialliance.org/xkos.html
+https://rdf-vocabulary.ddialliance.org/xkos.html#overview
+
+xkos:   http://rdf-vocabulary.ddialliance.org/xkos#
+
+
+
+4. XKOS Namespace and Vocabulary
+
+
+Table 1. XKOS Vocabulary
+
+
+Classifications and classification schemes
+    xkos:belongsTo          {major version of a classification}  >>  {the classification itself}
+    
+    xkos:follows            {older version of a classification}  >>  {newer version}
+      |
+      +- xkos:supersedes    {obsolete version of a classification}  >>  {newer version}
+      
+    xkos:variant            {established skos:ConceptScheme}  >>  {"customized" skos:ConceptScheme}
+    
+    xkos:covers             {A classification} >> {skos:Concept, a defined field}
+      |
+      +- xkos:coversExhaustively        (the coverage of the given field is complete)
+      +- xkos:coversMutuallyExclusively (there is no overlap between the classification items at a given level)
+        (Well-defined classifications usually cover their field in a exhaustive and mutually exclusive way)
+      
+    xkos:classifiedUnder    {an entity}  >>  {a concept representing the classification item}
+
+
+Classification levels
+ c  xkos:ClassificationLevel    (a specialization of skos:Collection)
+    xkos:depth                  xkos:ClassificationLevel  >>  {int, the distance from the root node, 1-based}
+    xkos:numberOfLevels         {a classification scheme}  >>  {int, the number of levels}
+    xkos:levels                 skos:ConceptScheme  >>  {rdf:List of its "xkos:ClassificationLevel"s}
+    xkos:organizedBy            xkos:ClassificationLevel  >>  {skos:Concept, the generic item for this level, as level title}
+    xkos:notationPattern        xkos:ClassificationLevel  >>  {regular expression, the "skos:notation" code structure}
+
+    
+Correspondences and concept associations
+    (Beyond usual  1 to 1  SKOS relations between concepts:  m to n  and even  0 to n.)
+
+ c  xkos:ConceptAssociation     (correlation table and mapping of "skos:Concept"s)
+    xkos:sourceConcept          xkos:ConceptAssociation  >>  skos:Concept
+    xkos:targetConcept          xkos:ConceptAssociation  >>  skos:Concept
+ c  xkos:Correspondence         (A complete collection of desired concepts associations)
+    xkos:madeOf                 xkos:Correspondence  >>  xkos:ConceptAssociation
+    xkos:compares               xkos:Correspondence  >>  skos:ConceptScheme
+
+
+Documentation properties
+    xkos:maxLength              (related to normalized fixed-length labels, if any)
+ c  xkos:ExplanatoryNote        
+    xkos:plainText              xkos:ExplanatoryNote  >>  {the raw content of the note}
+
+    skos:note                   (see SKOS)
+     |
+     +- skos:scopeNote          (see SKOS)
+     |   |
+     |   +- xkos:inclusionNote
+     |   |   +- xkos:coreContentNote        ("This category includes", "This item includes" or similar)
+     |   |   +- xkos:additionalContentNote  ("This category includes also", "This item includes also", or similar)
+     |   +- xkos:exclusionNote              ("This category excludes", "This division excludes" or similar)
+     |
+     +- xkos:caseLaw            (percedent cases in law)
+
+
+Semantic properties  (see below)
+    xkos:isPartOf 
+    xkos:hasPart
+    xkos:specializes
+    xkos:generalizes
+    xkos:causal
+    xkos:causes
+    xkos:causedBy
+    xkos:sequential
+    xkos:precedes
+    xkos:previous
+    xkos:succeeds
+    xkos:next
+    xkos:temporal
+    xkos:before
+    xkos:after
+    xkos:disjoint
+
+
+
+9.1 Hierarchical properties
+==============================
+
+xkos:specializes    is a sub-property of    skos:broader
+xkos:generalizes    is a sub-property of    skos:narrower
+
+    EXAMPLE 1
+    The term Vehicle is a generalized description of which Car is a specialized type of Vehicle.
+
+
+xkos:isPartOf   is a sub-property of    skos:broader
+xkos:hasPart    is a sub-property of    skos:narrower
+
+    EXAMPLE 2
+    The term Car has a part with the term SteeringWheel.
+
+
+It should be noted [ISOTHES] also extends the SKOS hierarchical properties with equivalent notions. Thus, the following property equivalences are declared :
+
+    xkos:generalizes    is equivalent to    iso-thes:narrowerGeneric
+    xkos:specializes    is equivalent to    iso-thes:broaderGeneric
+    xkos:hasPart        is equivalent to    iso-thes:narrowerPartitive
+    xkos:isPartOf       is equivalent to    iso-thes:broaderPartitive
+
+[ISOTHES]
+ISO 25964 SKOS Extension. URL: https://lov.linkeddata.es/dataset/lov/vocabs/iso-thes
+
+
+
+9.2 Associative properties
+==============================
+
+skos:related
+ |
+ +- xkos:causal
+ |   |
+ |   +- xkos:caused  <>  xkos:causedBy
+ |  
+ +- xkos:sequential
+ |   |
+ |   +- xkos:precedes  [transitive]     (1 precedes 5)
+ |   |   |
+ |   |   +- xkos:previous               (1 previous 2)
+ |   |
+ |   +- xkos:succeeds  [transitive]     (5 succeeds 1)
+ |   |   |
+ |   |   +- xkos:next                   (2   next   1)
+ |   |
+ |   +- xkos:temporal   
+ |       |
+ |       +- xkos:before [transitive]
+ |       +- xkos:after  [transitive]
+ |
+ +- xkos:disjoint
+
+Sequential relationships may be transitive or intransitive. 
+When transitive the relationship is expressed by the pair xkos:precedes and xkos:succeeds. 
+When not transitive the relationship is expressed by the pair xkos:previous and xkos:next.
+
+Temporal relationships are a specific type of sequential where one event or object is before or after another in terms of time. Temporal relationships are transitive and are expressed as xkos:before and xkos:after.
+
+

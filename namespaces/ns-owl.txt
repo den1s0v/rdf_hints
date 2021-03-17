@@ -1,0 +1,134 @@
+ns-owl.txt
+
+
+https://www.w3.org/TR/owl-features/
+https://www.w3.org/TR/owl-guide/
+    (the same:)
+    https://www.w3.org/TR/2004/REC-owl-guide-20040210/#owl_FunctionalProperty
+
+(Time Ontology in OWL) https://www.w3.org/TR/owl-time/
+
+
+owl:Thing	- самый базовый класс			(присутствует неявно)
+owl:Nothing	- подкласс любого класса-листа	(присутствует неявно)
+
+owl:Class
+rdfs:subClassOf
+
+
+ObjectProperty, DatatypeProperty
+rdfs:subPropertyOf, 
+rdfs:domain, rdfs:range
+
+owl:TransitiveProperty  (a < b < c < d  =>  a < c, a < d, b < d)
+owl:SymmetricProperty	(a == и  =>  b == a)
+owl:FunctionalProperty  (X -> Y : Forbidden: x -> y1, x -> y2, y1 != y2 )
+owl:InverseFunctionalProperty
+
+  Note:
+	In OWL Full, we can tag a DatatypeProperty as inverseFunctional. This permits us to identify a string as a unique key. In OWL DL literals are disjoint from owl:Thing, which is why OWL DL does not permit InverseFunctional to be applied to DatatypeProperty.
+
+owl:inverseOf
+
+owl:Restriction
+owl:onProperty
+	allValuesFrom, someValuesFrom
+	owl:cardinality
+	owl:hasValue
+
+
+equivalentClass, equivalentProperty
+
+sameAs
+differentFrom, AllDifferent
+
+
+intersectionOf, unionOf, complementOf
+oneOf
+disjointWith
+
+
+
+3.2.2. Properties and Datatypes
+...
+OWL uses most of the built-in XML Schema datatypes. References to these datatypes are by means of the URI reference for the datatype, 
+http://www.w3.org/2001/XMLSchema. The following datatypes are recommended for use with OWL:
+
+xsd:string				xsd:normalizedString	xsd:boolean
+xsd:decimal				xsd:float				xsd:double
+xsd:integer				xsd:nonNegativeInteger	xsd:positiveInteger
+xsd:nonPositiveInteger	xsd:negativeInteger
+xsd:long				xsd:int					xsd:short			xsd:byte
+xsd:unsignedLong		xsd:unsignedInt			xsd:unsignedShort	xsd:unsignedByte
+xsd:hexBinary			xsd:base64Binary
+xsd:dateTime			xsd:time				xsd:date			xsd:gYearMonth
+xsd:gYear				xsd:gMonthDay			xsd:gDay			xsd:gMonth
+xsd:anyURI				xsd:token				xsd:language
+xsd:NMTOKEN				xsd:Name				xsd:NCName
+
+The above datatypes, plus rdfs:Literal, form the built-in OWL datatypes. 
+All OWL reasoners are required to support the xsd:integer and xsd:string datatypes.
+
+<VintageYear rdf:ID="Year1998">
+  <yearValue rdf:datatype="&xsd;positiveInteger">1998</yearValue>
+</VintageYear> 
+
+
+
+
+
+Guide, Reference and Semantics Cross Reference (here, unique only)
+
+ c  owl:AllDifferent
+    owl:allValuesFrom
+ c  owl:AnnotationProperty
+    owl:backwardCompatibleWith
+    owl:cardinality
+ c  owl:Class
+    owl:complementOf
+ c  owl:DataRange
+ c  owl:DatatypeProperty
+ c  owl:DeprecatedClass
+ c  owl:DeprecatedProperty
+    owl:differentFrom
+    owl:disjointWith
+    owl:distinctMembers
+    owl:equivalentClass
+    owl:equivalentProperty
+ c  owl:FunctionalProperty
+    owl:hasValue
+    owl:imports
+    owl:incompatibleWith
+    owl:intersectionOf
+ c  owl:InverseFunctionalProperty
+    owl:inverseOf
+    owl:maxCardinality
+    owl:minCardinality
+ c  owl:Nothing
+ c  owl:ObjectProperty
+    owl:oneOf
+    owl:onProperty
+ c  owl:Ontology
+ c  owl:OntologyProperty
+    owl:priorVersion
+ c  owl:Restriction
+    owl:sameAs
+    owl:someValuesFrom
+ c  owl:SymmetricProperty
+ c  owl:Thing
+ c  owl:TransitiveProperty
+    owl:unionOf
+    owl:versionInfo
+
+ c  rdf:List
+    rdf:nil
+    rdf:type
+
+    rdfs:comment
+ c  rdfs:Datatype
+    rdfs:domain
+    rdfs:label
+ c  rdfs:Literal
+    rdfs:range
+    rdfs:subClassOf
+    rdfs:subPropertyOf

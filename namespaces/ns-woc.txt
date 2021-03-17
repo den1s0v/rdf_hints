@@ -1,0 +1,384 @@
+# ns-woc.txt
+# http://codeontology.org/doc
+
+PREFIX
+
+woc:<http://rdf.webofcode.org/woc/>
+   : http://rdf.webofcode.org/woc/
+xkos:http://rdf-vocabulary.ddialliance.org/xkos
+
+   
+External resources usage:
+
+http://rdf-vocabulary.ddialliance.org/xkos#generalizes
+http://rdf-vocabulary.ddialliance.org/xkos#hasPart
+http://rdf-vocabulary.ddialliance.org/xkos#isPartOf
+http://rdf-vocabulary.ddialliance.org/xkos#next
+http://rdf-vocabulary.ddialliance.org/xkos#previous
+http://rdf-vocabulary.ddialliance.org/xkos#specializes
+
+
+FULL VOCABULARY
+    (Search "^.+?<code>http\:\/\/rdf.webofcode.org/woc/(.+?)</code>.+?$" (181 hits in 1 file))
+
+
+ c  Abstract
+ c  AccessModifier
+ c  ActualArgument
+ c  AnnotationType
+ c  AnonymousClass
+ c  ArrayType
+ c  AssertStatement
+ c  AssignmentExpression
+ c  BlockStatement
+ c  Boolean
+ c  BranchingStatement
+ c  BreakStatement
+ c  Byte
+ c  CaseLabeledBlock
+ c  CatchBlock
+ c  Char
+ c  Class
+ c  ClassDeclarationStatement
+ c  ClassInstanceCreationExpression
+ c  CodeElement
+ c  ComplexType
+ c  Constructor
+ c  ContinueStatement
+ c  ControlFlowStatement
+ c  DecisionMakingStatement
+ c  DeclarationStatement
+ c  Default
+ c  DefaultLabeledBlock
+ c  DoStatement
+ c  Double
+ c  Enum
+ c  Executable
+ c  ExecutableInvocationExpression
+ c  Expression
+ c  ExpressionStatement
+ c  Field
+ c  FieldDeclarationStatement
+ c  Final
+ c  FinallyBlock
+ c  Float
+ c  ForEachStatement
+ c  ForStatement
+ c  GradleProject
+ c  IfThenElseStatement
+ c  Int
+ c  Interface
+ c  LabeledBlock
+ c  Library
+ c  LocalVariable
+ c  LocalVariableDeclarationStatement
+ c  Long
+ c  LoopStatement
+ c  MavenProject
+ c  Method
+ c  MethodInvocationExpression
+ c  Modifiable
+ c  Modifier
+ c  Package
+ c  Parameter
+ c  ParameterizedType
+ c  PrimitiveType
+ c  Private
+ c  Project
+ c  Protected
+ c  Public
+ c  ReturnStatement
+ c  Short
+ c  Statement
+ c  Static
+ c  SwitchStatement
+ c  Synchronized
+ c  SynchronizedStatement
+ c  ThrowStatement
+ c  TryStatement
+ c  Type
+ c  TypeArgument
+ c  TypeVariable
+ c  Variable
+ c  VariableDeclarationStatement
+ c  Volatile
+ c  WhileStatement
+ c  Wildcard
+     constructs
+     declares
+     extends
+    hasActualTypeArgument
+    hasAnnotation
+    hasArgument
+    hasAssertExpression
+    hasBody
+    hasBuildFile
+    hasCanonicalName
+    hasCatchClause
+    hasCatchFormalParameter
+    hasCondition
+    hasConstructor
+    hasDeclaration
+    hasDependency
+    hasDimensions
+    hasElseBranch
+    hasEndLine
+    hasField
+    hasFinallyClause
+    hasForInit
+    hasForUpdate
+    hasFormalTypeParameter
+    hasGenericType
+    hasInitializer
+    hasLabel
+    hasLeftHandSide
+    hasLine
+    hasMethod
+    hasModifier
+    hasName
+    hasNextStatement
+    hasPackage
+    hasParameter
+    hasPosition
+    hasPreviousStatement
+    hasProject
+    hasResource
+    hasReturnType
+    hasReturnedExpression
+    hasSimpleName
+    hasSourceCode
+    hasSubClass
+    hasSubExpression
+    hasSubProject
+    hasSubStatement
+    hasSuperBound
+    hasSwitchLabel
+    hasTarget
+    hasTargetedLabel
+    hasThenBranch
+    hasThrownExpression
+    hasType
+    hasVariable
+     implements
+     invokes
+    isAnnotationOf
+    isArrayOf
+    isAssertExpressionOf
+    isBodyOf
+    isCatchClauseOf
+    isConditionOf
+    isConstructedBy
+    isConstructorOf
+    isDeclaredBy
+    isDependencyOf
+    isElseBranchOf
+    isFieldOf
+    isFinallyClauseOf
+    isForInitOf
+    isForUpdateOf
+    isImplementedBy
+    isInitializerOf
+    isLeftHandSideOf
+    isMethodOf
+    isModifierOf
+    isOverriddenBy
+    isPackageOf
+    isParameterOf
+    isProjectOf
+    isReferencedBy
+    isReturnTypeOf
+    isReturnedBy
+    isReturnedExpressionOf
+    isSubExpressionOf
+    isSubProjectOf
+    isSubStatementOf
+    isSwitchLabelOf
+    isTargetOf
+    isThenBranchOf
+    isThrownBy
+    isThrownExpressionOf
+    isTypeOf
+    isVarArgs
+     overrides
+     references
+     returns
+     throws
+
+
+
+CLASSES
+
+owl:Thing
+ |
+ +- Code Element
+ |   |
+ |   +- Executable
+ |   |   |
+ |   |   +- Constructor
+ |   |   +- Method
+ |   |
+ |   +- Expression
+ |   |   |
+ |   |   +- Actual Argument
+ |   |   +- Assignment Expression
+ |   |   +- Executable invocation expression
+ |   |       |
+ |   |       +- Class Instance Creation Expression
+ |   |       +- Method Invocation Expression
+ |   |
+ |   +- Modifiable
+ |   |   |
+ |   |   +- Complex Type
+ |   |   |   |
+ |   |   |   +- Class
+ |   |   |   |   |
+ |   |   |   |   + Anonymous Class
+ |   |   |   |
+ |   |   |   +- Enum
+ |   |   |   +- Interface
+ |   |   |
+ |   |   +- Executable  (see above)
+ |   |   +- Field
+ |   |
+ |   +- Modifier             (has individuals:  Abstract Final Static Synchronized Volatile)
+ |   |   |
+ |   |   +- Access Modifier  (has individuals:  Default Private Protected Public)
+ |   |
+ |   +- Package
+ |   |
+ |   +- Statement
+ |   |   |
+ |   |   +- Assert Statement
+ |   |   |
+ |   |   +- Block Statement
+ |   |   |   |
+ |   |   |   +- Catch Block
+ |   |   |   +- Finally Block
+ |   |   |   +- Labeled Block
+ |   |   |       |
+ |   |   |       +- Case Labeled Block  ('has subexpression' exactly 1 Expression. 'next' only 'Labeled Block')
+ |   |   |       +- Default Labeled Block   ('next' only 'Labeled Block')
+ |   |   |
+ |   |   +- Control Flow Statement
+ |   |   |   |
+ |   |   |   +- Branching Statement
+ |   |   |   |   |
+ |   |   |   |   + Break Statement
+ |   |   |   |   + Continue Statement
+ |   |   |   |   + Return Statement
+ |   |   |   |
+ |   |   |   +- Decision Making Statement
+ |   |   |   |   |
+ |   |   |   |   + If-then-else Statement   ('has condition' exactly 1 Expression. 'has then branch' exactly 1 Statement)
+ |   |   |   |   + Switch Statement         ('has subexpression' exactly 1 Expression)
+ |   |   |   |
+ |   |   |   +- Loop statement      ('has body' max 1 'Block Statement')
+ |   |   |       |
+ |   |   |       + Do Statement         ('has condition' exactly 1 Expression)
+ |   |   |       + For Statement
+ |   |   |       + ForEach Statement    ('has subexpression' exactly 1 Expression. 'has variable' exactly 1 Variable)
+ |   |   |       + While Statement
+ |   |   |
+ |   |   +- Declaration statement
+ |   |   |   |
+ |   |   |   +- Class Declaration Statement
+ |   |   |   +- Variable Declaration
+ |   |   |       |
+ |   |   |       + Field Declaration
+ |   |   |       + Local Variable Declaration Statement
+ |   |   |
+ |   |   +- Expression statement
+ |   |   +- Synchronized Statement
+ |   |   +- Throw Statement
+ |   |   +- Try Statement
+ |   |
+ |   +- Type
+ |   |   |
+ |   |   +- Annotation
+ |   |   +- Array
+ |   |   +- Complex Type    (see above)
+ |   |   +- Parameterized Type
+ |   |   +- Primitive Type  (has individuals: Boolean Byte Char Double Float Int Long Short)
+ |   |   +- Type Variable
+ |   |   +- Wildcard
+ |   |
+ |   +- Type Argument
+ |   |
+ |   +- Variable        ('has type' exactly 1 Type)
+ |   |   |
+ |   |   +- Field
+ |   |   +- Local Variable  ('is declared by' only Executable)
+ |   |   +- Parameter
+ |
+ +- Library
+ |
+ +- Project
+     |
+     +- Gradle Project
+     +- Maven Project
+
+
+
+
+
+OBJECT PROPERTIES
+    
+  * xkos:generalizes  <>  xkos:specializes
+     |
+     + 'has subclass'  <>  extends
+     + 'has super bound'
+     + 'is implemented by'  <>  implements
+     + 'is overridden by'  <>  overrides
+    
+  * 'has type'  <>  'is type of'
+     |
+     + 'has return type'  <>  'is return type of'
+
+  * xkos:'has Part'  <>  xkos#isPartOf
+     |
+     +- declares  <>  'is declared by'  [Code Element >> Code Element]
+     |   |
+     |   +- ...
+     |   
+     +- 'has subexpression'  <>  'is subexpression by'  [Expression or Statement  >>  Expression]
+     |   |
+     |   +-
+     |   
+     +- 'has subproject'
+     |   
+     +- 'has substatement'  <>  'is substatement of'  [Executable or Statement  >>  Statement]
+     |   |
+     |   +- has body            >> 'Block Statement'
+     |   +- has catch clause
+     |   +- has else branch
+     |   +- has finally clause
+     |   +- has switch label
+     |   +- has then branch
+     |   
+     +- 'is project of'
+
+  *  ...
+  
+
+
+
+DATA PROPERTIES
+
+  * name
+     |
+     +- has canonical name
+     +- has simple name
+
+
+
+INDIVIDUALS
+
+    Abstract - Boolean - Byte - Char - Default - Double - Final - Float - Int - Long - Private - Protected - Public - Short - Static - Synchronized - Volatile
+
+
+
+ALL PROPERTIES
+
+
+build file - constructs - declares - dimensions - end line - extends - generalizes - has actual type argument - has annotation - has argument - has assert expression - has body - has canonical name - has catch clause - has catch formal parameter - has condition - has constructor - has declaration - has dependency - has else branch - has field - has finally clause - has for init - has for update - has formal type parameter - has generic type - has initializer - has left hand side - has method - has modifier - has package - has parameter - has Part - has previous statement - has project - has resource - has return type - has returned expression - has simple name - has subclass - has subexpression - has subproject - has substatement - has super bound - has switch label - has target - has then branch - has thrown expression - has type - has variable - implements - invokes - is annotation of - is array of - is body of - is catch clause of - is condition of - is constructed by - is constructor of - is declared by - is dependency of - is else branch of - is field of - is finally clause of - is for init of - is for update of - is implemented by - is initializer of - is left hand side of - is method of - is modifier of - is overridden by - is package of - is parameter of - is Part Of - is project of - is referenced by - is return type of - is returned by - is returned expression of - is subexpression of - is subexpression of - is subproject of - is substatement of - is switch label of - is target of - is then branch of - is thrown by - is thrown expression of - is type of - is var args - label - line - name - next - next - overrides - position - previous - references - returns - source code - specializes - targeted label - throws
+

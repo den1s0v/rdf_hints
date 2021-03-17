@@ -1,0 +1,50 @@
+Браузер словарей (онтологий) 
+https://lov.linkeddata.es/dataset/lov/vocabs/algo
+
+
+rdf:	http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:	http://www.w3.org/2000/01/rdf-schema#
+owl:	http://www.w3.org/2002/07/owl#
+
+skos:	http://www.w3.org/2004/02/skos/core#
+skosxl:	http://www.w3.org/2008/05/skos-xl#
+xkos:	http://rdf-vocabulary.ddialliance.org/xkos#
+
+# http://codeontology.org/sparql EXAMPLE:
+
+PREFIX owl:<http://www.w3.org/2002/07/owl#>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+PREFIX woc:<http://rdf.webofcode.org/woc/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>
+
+
+
+Table 2. Other vocabularies used in XKOS
+
+Prefix		URI										Description
+------------------------------------------------------------------------------------------------------
+dcterms		http://purl.org/dc/terms/				Dublin Core Metadata Initiative Metadata Terms ([DC-TERMS])
+skos		http://www.w3.org/2004/02/skos/core#	Simple Knowledge Organization System ([SKOS])
+skosxl		http://www.w3.org/2008/05/skos-xl#		SKOS eXtension for Labels (SKOS-XL) ([SKOSXL])
+iso-thes	http://purl.org/iso25964/skos-thes#		ISO 25964 SKOS extension ([ISOTHES])
+
+
+
+
+
+# TEACH, the Teaching Core Vocabulary
+		http://linkedscience.org/teach/ns/
+teach:	http://linkedscience.org/teach/ns#
+
+  Used there :
+@prefix tisc: <http://observedchange.com/tisc/ns#>.			tisc- Open Time and Space Core Vocabulary
+@prefix ical: <http://www.w3.org/2002/12/cal/icaltzd#>.		cal- Internet Calendaring and Scheduling Core Object Specification
+@prefix GE: <http://www.w3.org/2002/12/cal/tzd/Germany/Berlin#>.
+@prefix teach: <http://linkedscience.org/teach/ns#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix aiiso: <http://purl.org/vocab/aiiso/schema#>.		Academic Institution Internal Structure Ontology (AIISO)
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.

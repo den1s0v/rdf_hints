@@ -1,0 +1,27 @@
+ns-dc.txt
+https://ru.wikipedia.org/wiki/Дублинское_ядро
+https://www.dublincore.org/specifications/dublin-core/usageguide/elements/
+https://www.dublincore.org/specifications/dublin-core/usageguide/qualifiers/
+
+Ду́блинское ядро́ (англ. Dublin Core) — словарь (семантическая сеть) основных понятий английского языка, предназначенный для унификации МЕТАДАННЫХ для описания широчайшего диапазона ресурсов. 
+
+
+Браузер словарей (онтологий) 
+https://lov.linkeddata.es/dataset/lov/vocabs/algo
+
+
+
+
+# https://www.dublincore.org/specifications/dublin-core/dcmi-terms/
+
+
+Properties in the /terms/ namespace:
+	abstract, accessRights, accrualMethod, accrualPeriodicity, accrualPolicy, alternative, audience, available, bibliographicCitation, conformsTo, contributor, coverage, created, creator, date, dateAccepted, dateCopyrighted, dateSubmitted, description, educationLevel, extent, format, hasFormat, hasPart, hasVersion, identifier, instructionalMethod, isFormatOf, isPartOf, isReferencedBy, isReplacedBy, isRequiredBy, issued, isVersionOf, language, license, mediator, medium, modified, provenance, publisher, references, relation, replaces, requires, rights, rightsHolder, source, spatial, subject, tableOfContents, temporal, title, type, valid
+
+
+Properties in the /elements/1.1/ namespace  [effective subset of /terms/ namespace]:
+	contributor, coverage, creator, date, description, format, identifier, language, publisher, relation, rights, source, subject, title, type
+
+
+Classes:
+	Agent, AgentClass, BibliographicResource, FileFormat, Frequency, Jurisdiction, LicenseDocument, LinguisticSystem, Location, LocationPeriodOrJurisdiction, MediaType, MediaTypeOrExtent, MethodOfAccrual, MethodOfInstruction, PeriodOfTime, PhysicalMedium, PhysicalResource, Policy, ProvenanceStatement, RightsStatement, SizeOrDuration, Standard

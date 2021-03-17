@@ -1,0 +1,58 @@
+# ns-rdf.txt
+# https://www.w3.org/TR/rdf-schema/
+
+
+
+
+RDF classes
+
+Class name		comment
+
+rdfs:Resource	The class resource, everything.
+rdfs:Literal	The class of literal values, e.g. textual strings and integers.
+rdf :langString	The class of language-tagged string literal values.
+rdf :HTML		The class of HTML literal values.
+rdf :XMLLiteral	The class of XML literal values.
+rdfs:Class		The class of classes.
+rdf :Property	The class of RDF properties.
+rdfs:Datatype	The class of RDF datatypes.
+rdf :Statement	The class of RDF statements.
+rdf :Bag		The class of unordered containers.
+rdf :Seq		The class of ordered containers.
+rdf :Alt		The class of containers of alternatives.
+rdfs:Container	The class of RDF containers.
+rdfs:ContainerMembershipProperty	
+				The class of container membership properties, rdf:_1, rdf:_2, ..., all of which are sub-properties of 'member'.
+rdf :List		The class of RDF Lists.
+
+
+
+RDF properties
+
+Property name		comment											(domain >> range)
+
+rdf :type			The subject is an instance of a class.			(rdfs:Resource >> rdfs:Class)
+rdfs:subClassOf		The subject is a subclass of a class.			(rdfs:Class >> rdfs:Class)
+rdfs:subPropertyOf	The subject is a subproperty of a property.		(rdf :Property >> rdf :Property)
+rdfs:domain			A domain of the subject property.				(rdf :Property >> rdfs:Class)
+rdfs:range			A range of the subject property.				(rdf :Property >> rdfs:Class)
+rdfs:label			A human-readable name for the subject.			(rdfs:Resource >> rdfs:Literal)
+rdfs:comment		A description of the subject resource.			(rdfs:Resource >> rdfs:Literal)
+rdfs:member			A member of the subject resource.				(rdfs:Resource >> rdfs:Resource)
+rdf :first			The first item in the subject RDF list.			(rdf :List >> rdfs:Resource)
+rdf :rest			The rest of the subject RDF list after the first item.	(rdf :List >> rdf :List)
+rdfs:seeAlso		Further information about the subject resource.	(rdfs:Resource >> rdfs:Resource)
+rdfs:isDefinedBy	The definition of the subject resource.			(rdfs:Resource >> rdfs:Resource)
+rdf :value			Idiomatic property used for structured values.	(rdfs:Resource >> rdfs:Resource)
+rdf :subject		The subject of the subject RDF statement.		(rdf :Statement >> rdfs:Resource)
+rdf :predicate		The predicate of the subject RDF statement.		(rdf :Statement >> rdfs:Resource)
+rdf :object			The object of the subject RDF statement.		(rdf :Statement >> rdfs:Resource)
+
+
+
+
+RDF instances
+
+rdf:nil 		An instance of rdf:List that can be used to represent an empty list or other list-like structure.
+
+
