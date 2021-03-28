@@ -21,7 +21,7 @@ rdf :Bag		The class of unordered containers.
 rdf :Seq		The class of ordered containers.
 rdf :Alt		The class of containers of alternatives.
 rdfs:Container	The class of RDF containers.
-rdfs:ContainerMembershipProperty	
+rdfs:ContainerMembershipProperty
 				The class of container membership properties, rdf:_1, rdf:_2, ..., all of which are sub-properties of 'member'.
 rdf :List		The class of RDF Lists.
 
@@ -56,3 +56,53 @@ RDF instances
 rdf:nil 		An instance of rdf:List that can be used to represent an empty list or other list-like structure.
 
 
+rdf :List
+=============
+
+(a b c)
+
+[
+	rdf:type rdf:List ;
+	rdf:first <a> ;
+	rdf:rest [
+		rdf:first <b> ;
+		rdf:rest [
+			rdf:first <c> ;
+			rdf:rest rdf:nil;
+		]
+	]
+]
+
+
+Linked List
+=======
+my:next rdf:type rdf:Property .
+# my:student_next rdf:type rdf:Property .
+my:first rdf:type rdfs:Class .
+my:last rdf:type rdfs:Class .
+
+(a b c)
+
+<a> rdf:type my:first .
+<a> my:next <b> .
+<b> my:next <c> .
+<с> rdf:type my:last .
+
+my:next_transitive rdf:type rdf:Property .
+my:next_transitive rdfы:subPropertyOf owl:TransitiveProperty .
+my:next rdfs:subPropertyOf my:next_transitive .
+
+
+
+Indexing
+==============
+
+my:L1  rdf:type my:list .
+<a> my:in_list my:L1 .
+<b> my:in_list my:L1 .
+<с> my:in_list my:L1 .
+
+<a> my:index 0 .
+<b> my:index 1 .
+<с> my:index 2 .
+<с> rdf:type my:last .

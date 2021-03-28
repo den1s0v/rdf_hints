@@ -21,7 +21,7 @@ rdfs:subPropertyOf,
 rdfs:domain, rdfs:range
 
 owl:TransitiveProperty  (a < b < c < d  =>  a < c, a < d, b < d)
-owl:SymmetricProperty	(a == и  =>  b == a)
+owl:SymmetricProperty	(a == b  =>  b == a)
 owl:FunctionalProperty  (X -> Y : Forbidden: x -> y1, x -> y2, y1 != y2 )
 owl:InverseFunctionalProperty
 
